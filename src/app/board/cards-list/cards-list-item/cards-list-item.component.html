@@ -1,0 +1,12 @@
+<div class="card" cdkDropList 
+    (cdkDropListDropped)="onDrop($event)">
+  <p class="card_name">{{card.name}}</p>
+  <div class="card_task" cdkDrag *ngFor="let task of card.tasks">
+    <p class="card_task_descr">{{task.taskName}}</p>
+    <div class="card_task_info">
+      <span class="card_task_info_assignee">{{task.assignee ? task.assignee.name : "-"}}</span>
+      <span class="card_task_info_prior">Priority: {{task.taskPriority}}</span>
+    </div>
+  </div>
+  <button>Add task</button>
+</div>

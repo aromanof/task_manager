@@ -1,0 +1,33 @@
+<mat-toolbar class="header">
+  <div class="header_board-info">
+    <span class="header_board-info_board-name">Board Name</span>
+    <div matTooltip="{{member.name}}" class="header_board-info_team-members_member" *ngFor="let member of members">
+      <img class="header_board-info_team-members_member_photo" 
+           *ngIf="member.photo; else defaultLogo" 
+           [src]="member.photo" 
+           alt="user photo">
+    </div>
+  </div>
+  <div class="header_user-block">
+    <span class="header_user-block_greet">Hello, {{user.currentUser.name}}</span>
+    <img class="header_user-block_photo" 
+    *ngIf="user.currentUser.photo; else defaultLogo" 
+    [src]="user.currentUser.photo" 
+    alt="user photo">
+    <!-- <mat-menu #menu="matMenu">
+      <button mat-menu-item>Logout</button>
+      <button mat-menu-item>SomeShit</button>
+    </mat-menu> -->
+  </div>
+</mat-toolbar>
+
+<div class="main_container">
+    <app-cards-list></app-cards-list>
+</div>
+
+<ng-template #defaultLogo>
+  <img class="header_board-info_team-members_member_photo"
+       src="../assets/logos/default-user-pic.png" 
+       alt="user logo">
+</ng-template>
+
