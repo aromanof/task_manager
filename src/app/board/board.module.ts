@@ -7,12 +7,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import { CardsListComponent } from './cards-list/cards-list.component';
 import { CardsListItemComponent } from './cards-list/cards-list-item/cards-list-item.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {HeaderComponent} from '../shared/components/header/header.component';
 
 @NgModule({
   declarations: [
     BoardComponent,
     CardsListComponent,
-    CardsListItemComponent
+    CardsListItemComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     DragDropModule
   ],
   exports: [
-    BoardComponent
+    BoardComponent,
+    HeaderComponent
   ]
 })
 export class BoardModule { }

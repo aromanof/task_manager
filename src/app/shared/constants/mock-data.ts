@@ -1,8 +1,8 @@
 import { MembersInterface } from "../interfaces/members-interface";
 import { CardInterface } from "../interfaces/card-interface";
+import {BoardInterface} from '../interfaces/board-interface';
 
-export const mockMembers: MembersInterface[] = 
-    [
+export const mockMembers: MembersInterface[] = [
         {
             name: 'Alex',
             photo: '../assets/users/alex.jpg',
@@ -60,4 +60,19 @@ export const mockCards: CardInterface[] = [
             },
         ]
     }
+];
+
+export const mockBoards: BoardInterface[] = [
+    {
+        name: 'Insanely good board!',
+        cards: mockCards,
+        members: mockMembers,
+        id: 1,
+    },
+    {
+        name: 'A bit worse board',
+        cards: [],
+        members: [],
+        id: 2,
+    },
 ];

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { CardInterface } from 'src/app/shared/interfaces/card-interface';
 import * as mock from '../../shared/constants/mock-data';
 import { BehaviorSubject } from 'rxjs';
@@ -10,14 +10,15 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./cards-list.component.sass']
 })
 export class CardsListComponent implements OnInit {
-  public cards: CardInterface[] = mock.mockCards;
+  @Input() cards: CardInterface[];
+  public activeCards: CardInterface[];
 
   public tasksDragged = new BehaviorSubject<any>(null);
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.cards);
+    this.activeCards = this.cards;
     this.changeTasks();
   }
 
@@ -28,7 +29,8 @@ export class CardsListComponent implements OnInit {
           console.log(res);
             const cardId = Array.from(res.container.id).pop();
             // @ts-ignore TS2538
-            this.cards[cardId].tasks = this.swapElements(this.cards[cardId].tasks, res.previousIndex, res.currentIndex);
+            console.log(this.activeCards[cardId].tasks);
+            this.activeCards[cardId].tasks = this.swapElements(this.activeCards[cardId].tasks, res.previousIndex, res.currentIndex);
         }
       })
     ).subscribe();

@@ -13,11 +13,14 @@ import {MatInputModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { MainPageComponent } from './main-page/main-page.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
